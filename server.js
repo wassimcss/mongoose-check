@@ -67,13 +67,7 @@ const createMany = () => {
 }
 //createMany()
 
-// Use model.find() to Search Your Database
-app.get("/:name",(req,res)=> {
-    Person.findOne({name:"fawzi"},(err,person)=>{
-        if (err)  console.log(err)
-        else res.json(person)
-    })
-})
+
 // Use model.find() to Search Your Database
 const findAll = (personName) => {
     Person.find({name:personName},(err,data)=> {
@@ -82,6 +76,14 @@ const findAll = (personName) => {
     })
 }
 //findAll("Sami")
+
+// Use model.find() to Search Your Database with using routes
+app.get("/:name",(req,res)=> {
+    Person.findOne({name:"fawzi"},(err,person)=>{
+        if (err)  console.log(err)
+        else res.json(person)
+    })
+})
 
 //Use model.findOne() to Return a Single Matching Document from Your Database
 const findOne = (food) => {
